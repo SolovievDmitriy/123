@@ -1,0 +1,8 @@
+Import-Module activedirectory
+
+ForEach-Object {
+$fullname = 
+New-ADUser -Name `
+-GivenName $_.FirstName
+-AccountPassword (ConvertTo-SecureString $_.Password -AsPlainText -force) -Enabled $true
+}
